@@ -28,7 +28,7 @@ namespace Pinout {
 
   namespace Potentiometer {
     constexpr int pinPot = 17; 
-    constexpr int minRange = 0;
+    constexpr int minRange = 155;
     constexpr int maxRange = 3900;
   }
 
