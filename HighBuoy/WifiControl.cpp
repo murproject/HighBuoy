@@ -18,8 +18,6 @@ void WifiControl::setIPAddress(const IPAddress& local, const IPAddress& gw, cons
 }
 
 void WifiControl::setupWiFi(std::string ssid, std::string pass, bool softAP) {
-  WiFi.setTxPower(WIFI_POWER_20dBm);
-
   if (softAP) {
     std::string address = ssid + shortMacAddress;
 
@@ -42,6 +40,7 @@ void WifiControl::setupWiFi(std::string ssid, std::string pass, bool softAP) {
     WiFi.begin(ssid.c_str(), pass.c_str());
   }
 
+  WiFi.setTxPower(WIFI_POWER_20dBm);
   auto wifiPower = WiFi.getTxPower();
   Serial.printf("Current WiFi power. Raw: %d, converted: %.2f dBm\n",
                 wifiPower,
