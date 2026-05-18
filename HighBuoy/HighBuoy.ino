@@ -39,11 +39,6 @@ void setup() {
   I2C::instance().begin();
   RTC::instance().begin();
 
-  if (Potentiometer::instance().getPercent() < 98) {
-    Motor::instance().setPower(100);
-    delay(4000);
-  }
-
   DepthSensor::instance().begin();
 
   xTaskCreate([](void *arg) { DataManager::instance().taskReport(arg); },      "taskReport",      5120, NULL, Priority::Low, NULL);
